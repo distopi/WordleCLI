@@ -24,8 +24,8 @@ def main():
     tamanho_palavra = len(palavra_sorteada)
 
     letras_descobertas = ["_"] * tamanho_palavra
-    letras_tentadas = set()  # Usar 'set' é mais rápido para checar se algo já existe
-
+    letras_tentadas = set()  
+    
     max_turnos = tamanho_palavra + 7
     turnos_gastos = 0
 
@@ -33,7 +33,6 @@ def main():
     print("Bem-vindo ao Jogo WordleCLI")
     print("=" * 40)
 
-    # Loop principal do jogo
     while turnos_gastos < max_turnos:
         chances_restantes = max_turnos - turnos_gastos
 
@@ -45,13 +44,13 @@ def main():
         chute = input("Qual o seu palpite (uma letra)? ").strip().lower()
 
         if not chute.isalpha():
-            print("⚠️ Por favor, digite apenas letras!")
+            print("Por favor, digite apenas letras!")
             continue
         if len(chute) != 1:
-            print("⚠️ Por favor, digite apenas UMA letra por vez!")
+            print("Por favor, digite apenas UMA letra por vez!")
             continue
         if chute in letras_tentadas:
-            print("⚠️ Você já tentou essa letra. Tente outra!")
+            print("Você já tentou essa letra. Tente outra!")
             continue
 
         letras_tentadas.add(chute)
